@@ -1,0 +1,30 @@
+function ValidacaodeLogin(valores){
+let error = {}
+
+const email_pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const password_pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/
+
+if(valores.email === ""){
+    error.email = "O campo não pode esta vazio";
+}
+else if(!email_pattern.test(valores.email)){
+    error.email = "Preenchimento incorreto, exemplo: teste@teste.com";
+}
+else{
+    error.email  = "";
+}
+
+if(valores.password === ""){
+    error.password = "O campo não pode estar vazio"
+}
+else if(!password_pattern.test(valores.password)){
+    error.password = "A senha tem que ter no minimo 1 letra maiucula, minuscula, numero e simbolo, até caracteres"
+}
+else{
+    error.password = "";
+}
+
+return error;
+}
+
+export default ValidacaodeLogin;
