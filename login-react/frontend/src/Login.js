@@ -17,7 +17,7 @@ const Login = () => {
    setValores(prev=>({...prev,[event.target.name]: event.target.value}))
     }
 
-    const handleSubmit = (event) =>{
+    const handleSubmit = async (event) =>{
         event.preventDefault();
         setErrors(validacaodeLogin(valores));
 
@@ -25,9 +25,11 @@ const Login = () => {
             axios.post('http://localhost:7006/login', valores)
             .then(res => {
                 if(res.data === "Login realizado com sucesso"){
-                    navegacao("/home");
+                    console.log(res);
+                    navegacao("/");
                 } else {
                     alert("Registro inexistente");
+                    console.log(res);
                 }
             })
             .catch(err => console.log(err));

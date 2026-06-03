@@ -20,13 +20,14 @@ const Cadastrar = () => {
    setValores(prev=>({...prev,[event.target.name]: event.target.value}))
     }
 
-    const handleSubmit = (event) =>{
+    const handleSubmit = async (event) =>{
         event.preventDefault();
         setErrors(ValidacaodeCadastro(valores));
 
         if(errors.name === "" && errors.email === "" && errors.password === ""){
             axios.post('http://localhost:7006/cadastrar', valores)
             .then(res => {
+                console.log(res);
                 navegacao("/");
             })
             .catch(err => console.log(err));
@@ -59,7 +60,7 @@ const Cadastrar = () => {
                         </div>
                         <button type="submit" className="btn btn-success w-100 rounded-0"><strong>Cadastrar</strong></button>
                         <p> Ao se cadastrar você esta de acordo com nossos termos e politicas</p>
-                        <Link to="/" className="btn btn-default border w-100 rounded bg-light rounded-0">Vá para a tela de Login</Link>
+                        <Link to="/login" className="btn btn-default border w-100 rounded bg-light rounded-0">Vá para a tela de Login</Link>
                     </form>
                 </div>
     
