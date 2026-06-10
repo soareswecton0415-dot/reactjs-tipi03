@@ -1,7 +1,6 @@
 import { useState } from "react";
-import{Link} from "react-router-dom";
+import{Link, useNavigate} from "react-router-dom";
 import ValidacaodeCadastro from "./ValidacaodeCadastro";
-import { useNavigate } from "react-router-dom";
 import axios from "axios"
 
 
@@ -28,7 +27,7 @@ const Cadastrar = () => {
             axios.post('http://localhost:7006/cadastrar', valores)
             .then(res => {
                 console.log(res);
-                navegacao("/");
+                navegacao("/login");
             })
             .catch(err => console.log(err));
         }

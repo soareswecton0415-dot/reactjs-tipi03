@@ -72,6 +72,19 @@ app.post("/login", (req, res) => {
     });
 });
 
+app.get("/", (req, res) => {
+    if (req.session.username) {
+        return res.json({
+            valid: true,
+            name: req.session.username
+        });
+    }else {
+        return res.json({
+            valid: false
+        });
+    }
+});
+
 app.listen(7006, () => {
     console.log("Conectado ao banco de dados");
 })
