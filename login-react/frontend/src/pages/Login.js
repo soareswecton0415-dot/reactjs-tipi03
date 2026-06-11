@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import validacaodeLogin from './ValidacaodeLogin';
+import validacaodeLogin from '../services/ValidacaodeLogin';
 import axios from "axios"
 const Login = () => {
     const [valores, setValores] = useState({

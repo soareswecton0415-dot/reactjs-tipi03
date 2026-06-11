@@ -1,7 +1,7 @@
 import React from 'react'
-import Login from './Login'
-import Cadastrar from './Cadastrar'
-import Home from './Home';
+import Login from './pages/Login'
+import Cadastrar from './pages/Cadastrar'
+import Home from './pages/Home';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 const App = () => {
@@ -18,4 +18,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import{Link, useNavigate} from "react-router-dom";
-import ValidacaodeCadastro from "./ValidacaodeCadastro";
+import ValidacaodeCadastro from "../services/ValidacaodeCadastro";
 import axios from "axios"
 
 

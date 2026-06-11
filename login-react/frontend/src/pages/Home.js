@@ -22,9 +22,20 @@ const Home = () => {
     .catch(err => console.log(err))
   }, [navegacao])
 
+  const handleLogout = () =>{
+    axios.get('http://localhost:7006/logout', {withCredentials: true})
+    .then(res => {
+      if(res.data.message){
+        navegacao('/login') //ao destruir a sessão volta para login
+      }
+    })
+    .catch(err => console.log(err));
+  }
+
   return (
     <div>
       <h1>Boas vindas ao nosso site {name}</h1>
+      <button onClick={handleLogout}>Sair</button>
     </div>
   )
 }
