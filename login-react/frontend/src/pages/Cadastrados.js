@@ -28,6 +28,18 @@ const Cadastrados = () => {
   const handleEditar = (id) => {
     navegacao(`/editar/${id}`);
   }
+
+  // Excluir usuário
+  const handleExcluir = (id) => {
+    if (window.confirm("Deseja realmente excluir este usuário ?")) {
+      axios.delete(`http://localhost:7006/cadastrados/${id}`)
+      .then(res => {
+        alert(res.data.message);
+        carregarUsuarios();
+      })
+      .catch(err => console.log(err));
+    }
+  }
  
  
   return (
@@ -56,6 +68,13 @@ const Cadastrados = () => {
                 <td>{usuario.email}</td>
                  <button onClick={() => handleEditar(usuario.id)}>
                     Editar
+                 </button>
+
+                 <button
+                 onClick={() => handleExcluir(usuario.id)}
+                 style={{ marginLeft: '10px', color: 'red'}}
+                 >
+                  Excluir
                  </button>
               </tr>
             ))
