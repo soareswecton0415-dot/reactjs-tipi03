@@ -2,6 +2,17 @@ const { text } = require("express");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const commentSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  text: {
+    type: String,
+    required: true
+  }
+});
+
 const MemoriaSchema = new Schema({
   title: {
     type: String,
@@ -18,7 +29,7 @@ const MemoriaSchema = new Schema({
   favorite: { 
     type: Boolean,
   },
-
+  comments: [commentSchema]
 },
 { timestamps: true }
 );
