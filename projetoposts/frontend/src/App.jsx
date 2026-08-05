@@ -5,10 +5,26 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 function App(){
   return(
     <div className="App">
       <Navbar />
+      <ToastContainer 
+      position = "top-right"
+      autoClose = {5000}
+      hideProgressBar = {false}
+      newestOnTop = {false}
+      closeOnClick
+      rtl = {false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme= "light"
+      />
       <div className="container">
         <Outlet />
       </div>
